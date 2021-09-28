@@ -42,14 +42,16 @@ body {
 
 .text-box{
     position: absolute;
-    top: 50%; /*Se refieren al padre*/
+    top: 40%; /*Se refieren al padre*/
     left: 50%;
     transform: translate(-50%, -50%); /*Se refiere sobre si mismo sobre su propio width y heigth. Desplazame un 50% de mi ancho*/
+    text-align: center;
 }
 
 .heading-primary{
     color: #fff;
     text-transform: uppercase;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main{
@@ -78,11 +80,45 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px; 
+    transition: all 0.2s;  
+    position: relative;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* x y blur color*/
+}
+
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after{
+    content: 'AFTER';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.btn:hover::after{
+    transform: scale(2);
 }
 
 .btn-white{
     background-color: #fff;
     color: #777;
+}
+
+.btn-white::after{
+
 }
 
 @keyframes moveInLeft {
@@ -91,7 +127,7 @@ body {
         transform: translateX(-100px);
     }
 
-    80%{
+    80% {
         transform: translateX(10px);;
     }
 
@@ -107,7 +143,7 @@ body {
         transform: translateX(100px);
     }
 
-    80%{
+    80% {
         transform: translateX(-10px);;
     }
 
