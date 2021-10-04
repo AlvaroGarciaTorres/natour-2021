@@ -1,0 +1,19 @@
+.row {
+    max-width: 114rem;
+    background-color: #eee;
+    margin: 0 auto; /*trick to center a block element inside of another block element*/
+    /*margin-bottom: 8rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }*/
+    &:not(:last-child){
+        margin-bottom: 8rem; /*te ahorras código*/
+    }
+}
+
+.col-1-of-2 {
+    background-color: orangered;
+    float: left;
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+}
