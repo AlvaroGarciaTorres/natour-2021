@@ -22,29 +22,29 @@
         animation-timing-function: ease-out;*/
         //animation-timing-function: cubic-bezier(1,1.81,.9,.49);
     }
+} 
 
-    .heading-secondary{
-        font-size: 3.5rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        /*background-image: linear-gradient(to right, , );*/
-        display: inline-block;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        letter-spacing: 2px;
-        transition: all .2s;
+.heading-secondary{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    transition: all .2s;
 
-        &:hover{
-            transform: rotate(2deg) skewX(15deg) scale(1.1);
-            text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
-        }
+    &:hover{
+        transform: rotate(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
     }
+}
 
-    .heading-tertiary{
-        font-size: 1.6rem;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-}    
+.heading-tertiary{
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
 

@@ -1,0 +1,38 @@
+.card{
+    perspective: 150rem; //perspective works on child elements
+    position: relative; //el posicionamiento absoluto me obliga a posicionar al padre
+    /*Perspective is gonde because when we use position absolute the parent (.card), has width of 0 pixels
+    Here we can not use the clearfix trick, so
+    we add the same height of their children*/
+    height: 50rem;
+
+    &__side{
+        height: 50rem;
+        transition: all .8s; 
+        color: #fff; 
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden; //oculta la parte trasera del componente
+
+        &--front{
+            background-color: white;
+        }
+
+        &--back{
+            background-color: green;
+            transform: rotateY(180deg); //la parte de atrás esta girada desde el principio
+            //z-index: -1; no funciona bien
+        }
+    }
+
+
+    &:hover &__side--front{
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back{
+        transform: rotateY(0); //Vuelve a su posición inicial
+    }
+}
