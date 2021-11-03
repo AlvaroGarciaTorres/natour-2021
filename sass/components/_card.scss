@@ -8,31 +8,142 @@
 
     &__side{
         height: 50rem;
-        transition: all .8s; 
-        color: #fff; 
+        transition: all .8s ease;
         position: absolute; 
         top: 0;
         left: 0;
         width: 100%;
         backface-visibility: hidden; //oculta la parte trasera del componente
+        border-radius: 3px;
+        overflow: hidden; //porque background-blend-mode hace que se pierda la curvatura de las esquinas, así se arregla
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
         &--front{
             background-color: white;
         }
 
         &--back{
-            background-color: green;
             transform: rotateY(180deg); //la parte de atrás esta girada desde el principio
             //z-index: -1; no funciona bien
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+    }
+
+    &__heading{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%; //para romper el texto en dos lineas
+
+        &-span{
+            padding: 1rem 1.5rem;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone; //respeta el estilo que tuviera en cada una de las lineas
+            &--1{
+                background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85)); //background para el texto
+            }
+
+            &--2{
+                background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85)); //background para el texto
+            }
+
+            &--3{
+                background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85)); //background para el texto
+            }
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 85%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
         }
     }
 
 
     &:hover &__side--front{
-        transform: rotateY(180deg);
+        transform: rotateY(-180deg); //para que haga la vuelta completa se pone -
     }
 
     &:hover &__side--back{
         transform: rotateY(0); //Vuelve a su posición inicial
+    }
+
+    //FRONT SIDE STYLING
+    &__picture{
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1{
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+            url("../../img/nat-5.jpg"); //image from unsplash.com
+        }
+
+        &--2{
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+            url("../../img/nat-6.jpg"); //image from unsplash.com
+        }
+
+        &--3{
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+            url("../../img/nat-7.jpg"); //image from unsplash.com
+        }
+    }
+
+    //FRONT BACK STYLING
+    &__cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%; //para que el boton no se rompa
+        text-align: center;
+    }
+
+    &__price-box{
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value{
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
